@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generador de Palabra</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    .info {
+      margin: 20px;
+      font-size: 1.2em;
+    }
+    .resultado {
+      font-weight: bold;
+      font-size: 1.5em;
+      color: green;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Generador de Palabra</h1>
+  <button id="startButton">Comenzar</button>
+  <div class="info">
+    <p>Letras generadas: <span id="contadorLetras">0</span></p>
+    <p>Tiempo transcurrido: <span id="tiempo">00:00:00.000</span></p>
+    <p>Progreso: <span id="progreso"></span></p>
+    <p>Más cerca: <span id="masCerca"></span> (Tiempo: <span id="tiempoMasCerca">-</span>)</p>
+  </div>
+  <div class="resultado" id="resultado"></div>
+
+  <script>
+    const caracteresValidos = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ñáéíóúÁÉÍÓÚüÜ";
+    const palabraObjetivo = "Agustin";
+
+    function generarLetra() {
+      return caracteresValidos[Math.floor(Math.random() * caracteresValidos.length)];
+    }
+
+    function formatearTiempo(ms) {
+      const horas = String(Math.floor(ms / 3600000)).padStart(2, '0');
+      const minutos = String(Math.floor((ms % 3600000) / 60000)).padStart(2, '0');
+      const segundos = String(Math.floor((ms % 60000) / 1000)).padStart(2, '0');
+      const milisegundos = String(ms % 1000).padStart(3, '0');
+      return `${horas}:${minutos}:${segundos}.${milisegundos}`;
+    }
+
+    function main() {
+      let palabraActual = "";
+      let contadorLetras = 0;
+      let masCerca = "";
+      let tiempoMasCerca = "-";
+      const inicioTiempo = Date.now();
+
+      const contadorLetrasElemento = document.getElementById("contadorLetras");
+      const tiempoElemento = document.getElementById("tiempo");
+      const progresoElemento = document.getElementById("progreso");
+      const masCercaElemento = document.getElementById("masCerca");
+      const tiempoMasCercaElemento = document.getElementById("tiempoMasCerca");
+      const resultadoElemento = document.getElementById("resultado");
+
+      const intervalo = setInterval(() => {
+        const letra = generarLetra();
+        contadorLetras++;
+
+        // Construir palabra o reiniciar si no coincide
+        if (palabraActual + letra === palabraObjetivo.substring(0, palabraActual.length + 1)) {
+          palabraActual += letra;
+
+          // Actualizar "más cerca" si se supera el progreso anterior
+          if (palabraActual.length > masCerca.length) {
+            masCerca = palabraActual;
+            tiempoMasCerca = formatearTiempo(Date.now() - inicioTiempo);
+          }
+        } else {
+          palabraActual = "";
+        }
+
+        // Actualizar información en la página
+        const tiempoTranscurrido = Date.now() - inicioTiempo;
+        contadorLetrasElemento.textContent = contadorLetras;
+        tiempoElemento.textContent = formatearTiempo(tiempoTranscurrido);
+        progresoElemento.textContent = palabraActual;
+        masCercaElemento.textContent = masCerca;
+        tiempoMasCercaElemento.textContent = tiempoMasCerca;
+
+        // Finalizar cuando la palabra se encuentre
+        if (palabraActual === palabraObjetivo) {
+          clearInterval(intervalo);
+          resultadoElemento.textContent = `¡Palabra encontrada! Letras generadas: ${contadorLetras}, Tiempo total: ${formatearTiempo(tiempoTranscurrido)}.`;
+        }
+      }, 10); // Intervalo para actualizar la información (10 ms)
+    }
+
+    document.getElementById("startButton").addEventListener("click", () => {
+      document.getElementById("resultado").textContent = ""; // Limpiar resultado previo
+      main();
+    });
+  </script>
+</body>
+</html>
