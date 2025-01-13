@@ -6,6 +6,8 @@
   <title>Generador de Palabra</title>
   <style>
     body {
+      background-color: black;
+      color: white;
       font-family: Arial, sans-serif;
       text-align: center;
       margin-top: 50px;
@@ -38,8 +40,9 @@
   <div class="resultado" id="resultado"></div>
 
   <script>
-    const caracteresValidos = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ñáéíóúÁÉÍÓÚüÜ";
-    const palabraObjetivo = "Agustin";
+    //const caracteresValidos = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ñáéíóúÁÉÍÓÚüÜ";
+    const caracteresValidos = "agustin";
+    const palabraObjetivo = "agustin";
 
     function generarLetra() {
       return caracteresValidos[Math.floor(Math.random() * caracteresValidos.length)];
