@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validacion textArea</title>
+    <script languaje='javascript'>
+
+        //Funcion que cuenta las palabras, teniendo en cuenta los espacios en blanco,
+        //No controla que pasa si pone dos espacios en blanco,
+        //Al borrar el contenidod el cuadro no cambia el numero de palabras hasta que se presione neuvamente esapcio.
+        function contarPalabras(form){
+            texto = form.mensaje.value
+            texto = texto.split(' ')
+            form.cantidad.value=texto.length
+        }
+
+        //Contar caracteres y controlar que tenga mas de 10 y menos de 20.
+        function contarCaracteres(form){
+        
+            texto = form.mensaje.value;
+            if(texto.length < 10 || texto.length > 20){
+                alert("El texto debe tener entre 10 y 20 caracteres");
+            }
+        }
+    </script>
+</head>
+<body>
+    <form name='formulario1' method='POST'action='#' target='_blank'>
+        <h1>Validacion de formularios: textArea.</h1>
+        <b>Por favor redacte aqui su mensaje</b>
+        <br>
+        <textarea rows="4" cols="35" name="mensaje" 
+        onKeyPress='contarPalabras(this.form); if(event.keyCode == 13) {
+        form.mensaje.value +=" ";}'></textarea>
+        <br>
+        Palabras escritas:
+        <input type='text' name='cantidad' value="0" size="2">
+
+        <!--Boton de tipo button y no submit para poder comprobar las funciones del ejercicio-->
+        <input type="button" onclick="contarCaracteres(this.form)" value="Enviar">
+       
+    </form>
+</body>
+</html>
