@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script defer src="./JS/app.js"></script>
+</head>
+<body>
+
+    <p>Crea un campo contraseña, un boton y otro campo. En el segundo campo se mostrara la contraseña cuando se le de al botón.
+    </p>
+
+    <!--eN ESTE FORMULARIO UTILIZO LA FUNCION ONCHANGE, Ejecuta el evento cuando quito el foco del elemento sobre el que esta aplicada la funcion-->
+    <form name='formulario3' method='POST' action='miPagina.htm' target='_blank'>
+    Contraseña: <input type='text' name='nombre' size='20' id="contrasena"><br>
+    <input type='button' value='Mostrar contraseña'onclick="mostrarContrasena()" id="botonMostrar"><br>
+    Mostrar contraseña <input type='text' name='mostrar' size='20' id="mostrar"><br>
+    </form>
+</body>
+</html>

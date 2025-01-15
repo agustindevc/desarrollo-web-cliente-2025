@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script defer src="./JS/app.js"></script>
+</head>
+<body>
+
+    <p>Crea un pormulacion con opciones (SI/NO) Al rpesionar en si debe aparecer abajo un input, al rpesionar en no, el input debe desapareer.
+    </p>
+
+    <!--eN ESTE FORMULARIO UTILIZO LA FUNCION ONCHANGE, Ejecuta el evento cuando quito el foco del elemento sobre el que esta aplicada la funcion-->
+    <form name='formulario3' method='POST' action='miPagina.htm' target='_blank'>
+        <label for="si">Sí</label>
+        <input type="radio" id="si" name="opcion" value="si"><br>
+        <label for="no">No</label>
+        <input type="radio" id="no" name="opcion" value="no">
+        <div id="inputDiv"></div>
+    </form>
+    
+</body>
+</html>
