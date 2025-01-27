@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 10 - Guia 1 - Arrays</title>
+    <script defer src="./JS/app.js"></script>
+</head>
+<body>
+    <h1>Ejercicio 10 - Guia 1 - Arrays</h1>
+    <p>Crea un script que filtre una lista de nombres y devuelva otra lista solo con
+        los que son amigos tuyos.
+        Como eres una persona muy “especial”, tú solo eres amigo/a de aquellas personas cuyo
+        nombre se componga exactamente de 4 letras.
+        Ejemplo:
+        Entrada={Luis", "Estela", "Ángel", "Enya", "Jose Antonio"}
+        Salida = {"Luis", "Enya"}
+        Entrada = {"Joaquín", "Manuel", "Carlos"}
+        Salida = {}
+        Suponemos que los array son correctos y tienen nombres.
+        Importante: hay que respetar el orden de los nombres en la salida.</p>
+
+        <form>
+            <label for="lista">Nombres de tus amigos separados por comas (,)</label>
+            <input name="lista" type="text" id="lista">
+            <br>
+            <br>
+            <button type="button" onclick="mostrarAmigos()">Mostrar Amigos</button>
+        </form>
+
+        <div id="mostrar"></div>
+</body>
+</html>
