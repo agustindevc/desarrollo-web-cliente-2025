@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function mostrarInputsFun(){
+            //Eliminar lo que nhubiera en el div de muestra
+            mostrar = document.getElementById("mostrarInputs2");
+            mostrar.innerHTML = "";
+
+            //obtener dato de cantidad y controlar que sea un numero.
+            let cantidad = document.getElementById("hijos").value;
+            if(isNaN(cantidad)){
+                alert("Debes introducir un numero.");
+            }
+
+            
+
+            for(let i = 0; i < cantidad; i++){
+
+                //creacion de label en cada iteracion
+                let label = document.createElement("label");
+                label.textContent = "Nombre del hijo " + (i + 1) + ": ";
+                
+                //creacion de input con sus atributos en cada itracion
+                let nuevoInput = document.createElement("input");
+                nuevoInput.type = "text";
+                nuevoInput.id = "nombre" + (i + 1);
+
+                //Añadir elementos al div
+                mostrar.appendChild(label);
+                mostrar.appendChild(nuevoInput);
+                mostrar.appendChild(document.createElement("br")); 
+                mostrar.appendChild(document.createElement("br")); 
+            }
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <label for="hijos">¿Cuántos hijos tienes?</label>
+        <input type="number" id="hijos">
+        <button type="button" onclick="mostrarInputsFun()">OK</button>
+    </form>
+    <br>
+    <div id="mostrarInputs2"></div>
+</body>
+</html>

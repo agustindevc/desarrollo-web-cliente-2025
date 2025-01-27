@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function controlarArchivo(){
+            let archivo = document.getElementById("archivo").value.toLowerCase();
+            let archivosPermitidos = ["jpg", "png"];
+            let extension = archivo.split(".").pop(); //pop toma la ultima division.
+            if(!archivosPermitidos.includes(extension)){
+                alert("El archivo tiene una extension no permitida")
+            } else {
+                let boton = document.getElementById("boton");
+                boton.setAttribute("type", "submit");
+                alert("El archivo se ha enviado");
+            }
+        }
+    </script>
+</head>
+<body>
+    <form enctype="multipart/form-data"> <!--De debe poner este atributo para trabajar con archivos-->
+        <label for="archivo">Archivo</label>
+        <input type="file" id="archivo">
+        <button type="button" id="boton" onclick="controlarArchivo()">Enviar</button>
+    </form>
+</body>
+</html>

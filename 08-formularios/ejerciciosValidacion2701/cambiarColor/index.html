@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #cuadrado{
+        width: 100px;
+        height: 100px;
+        background-color: red;
+    }
+</style>
+<script>
+    function cambiarColor(){
+        var color = document.getElementById("color").value;
+        var cuadrado = document.getElementById("cuadrado");
+        cuadrado.style.backgroundColor = color;
+    }
+</script>
+<body>
+    <form>
+        <label for="color" name="color"> Elige un color: </label> <!--si quisiera que se cambie automaticamente al cambiar el select, le agrego onchanche(cambiarColor());-->
+        <select id="color" name="color">
+            <option value="red">Rojo</option>
+            <option value="yellow">Amarillo</option>
+            <option value="green">Verde</option>
+        </select>
+        <button type="button" onclick="cambiarColor()">Cambiar color</button>
+        <div id="cuadrado" ></div>
+    </form>
+</body>
+</html>
