@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+    <script>
+        function mostrarOpciones(){
+            let opSeleccionada = document.getElementById("asunto").value;
+            //Eliminar lo que nhubiera en el div de muestra
+            mostrar = document.getElementById("mostrarInputs");
+            mostrar.innerHTML = "";
+
+            if(opSeleccionada == "apuntarse"){
+                mostrar.innerHTML = `
+                <label for="opciones"> Otra Opción: </label>
+                <select name="opciones" id="opcion">
+                    Elija una opcion:
+                    <option value="dam">DAM</option>
+                    <option value="daw">DAW</option>
+                    <option value="asir">ASIR</option>
+                </select>
+                `;
+
+            } else if(opSeleccionada == "otros") {
+
+               
+                //crear label "otra opcion"
+                let label = document.createElement("label");
+                label.textContent = "Otra opción: ";
+                
+                //crear nuevo minput
+                let nuevoInput = document.createElement("input");
+                nuevoInput.type = "text";
+                nuevoInput.id = "otraOpcion";
+                nuevoInput.maxLength="10";
+                nuevoInput.required;
+
+                //Añadir elementos al div
+                mostrar.appendChild(label);
+                mostrar.appendChild(nuevoInput);
+             
+            }
+        }
+        
+    </script>
+</head>
+<body>
+    <form id="form">
+        <label for="nombre"> Nombre: </label>
+        <input type="text" name="nombre" id="nombre" required autocomplete="off"/>
+        <label for="email"> Email: </label>
+        <input type="text" name="email" id="email" required autocomplete="off"/>
+        <select name="asunto" id="asunto" onchange="mostrarOpciones()">
+            <option value="pedirInfo">Pedir información</option>
+            <option value="apuntarse">Apuntarse a un curso</option>
+            <option value="otros">Otros</option>
+        </select>
+        <div id="mostrarInputs"></div>
+      </form>
+</body>
+</html>
