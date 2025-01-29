@@ -33,7 +33,7 @@
       enviar.addEventListener("click", validar);
 
       function validar(e) {
-        e.preventDefault();
+        e.preventDefault(); //impide que el formulario se envíe automáticamente, permitiendo ejecutar primero la validación.
 
         /*Constante para el campo nombre*/
         const campoNombre = document.getElementById("nombre");
@@ -43,7 +43,7 @@
           const nombreError = document.getElementById("nombreError"); /*Toma la constante*/
           nombreError.classList.add("visible"); /*Le asigna la clase visible*/
           campoNombre.classList.add("invalido"); /*Le asigna la clase invalido*/
-          nombreError.setAttribute("aria-hidden", false); /*quita el hidden para que sea visibre*/
+          nombreError.setAttribute("aria-hidden", false); /*quita el hidden para que sea visible*/
           nombreError.setAttribute("aria-invalid", true);
         } else {
           nombreError.classList.remove("visible"); /*Le asigna la clase visible*/

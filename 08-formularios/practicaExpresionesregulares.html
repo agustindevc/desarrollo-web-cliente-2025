@@ -3,45 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Practica de expresiones regulares</title>
+    <title>Práctica de expresiones regulares</title>
+    <style>
+        .error {
+            display: none;
+            color: red;
+            font-size: 0.9em;
+        }
+        input:invalid + .error {
+            display: inline;
+        }
+    </style>
 </head>
 <body>
-    <label>Matricula Coche:</label>
-    <input type="text" pattern="/^[0-9]{4}[A-Z][^AEIOU]{3}/$" required /> <!--cuatro numeros y 3 letras que no sean vocales-->
-    <span id="error" class="error"></span>
-    <br/>
-    <label>DNI:</label>
-    <input type="text" pattern="/^[0-9]{8}[A-Z]/$" required />
-    <span id="error" class="error"></span>
-    <br/>
-    <label>Fecha de aqui a un año:</label>
-    <input type="text" pattern="/^[0-9]{4}[0-9]{2}[0-9]{2}/$" required />
-    <span id="error" class="error"></span>
-    <br/>
-    <label>Matricula Moto:</label>
-    <input type="text" pattern="/^C[0-9]{1}\S[0-9]{3}\S[A-Z]{3}/$" required /> <!--cOMIENZA POR C, LUEGO UN NUMERO, ESPACIO, TRES NUMEROS Y TRES LETRAS-->
-    <span id="error" class="error"></span>
-    <br/>
-    <label>Cuenta bancaria:</label>
-    <input type="text" pattern="/^[A-Z]{2}\S[0-9]{4}\S[0-9]{4}\S[0-9]{4}\S[0-9]{4}/$" required /> <!--Dos letras seguidas de dos nuemros, espacio, cuatro numeros, espacio, cuatro numeros,espacio...-->
-    <span id="error" class="error"></span>
-    <br/>
-    <label>Contraseña:</label>
-    <input type="text" pattern="/^[\W*-]{2}\S" required />
-    <span id="error" class="error"></span>
-    <br/>
-    <label>IP:</label>
-    <input type="text" pattern="/^[0-255]{3}[0-255]{3}[0-255]{3}[0-255]{3}/$" required />
-    <span id="error" class="error"></span>
-    <br/>
-    <label>Numero de serie:</label>
-    <input type="text" pattern="/^N/S[A-Z][a-z]{10}/$" required />
-    <span id="error" class="error"></span>
-    <br/>
-    <label>Dominio:</label>
-    <input type="text" pattern="/^([a-Z0-9\-]+\.){1,2}[a-z]{2,6}/$" required />
-    <span id="error" class="error"></span>
-    <br/>
-    <button id="comprueba">Validar</button>
+    <form>
+        <label>Matricula Coche:</label>
+        <input type="text" pattern="[0-9]{4}[A-Z][^AEIOU]{3}" required />
+        <span class="error">Por favor, introduzca una matrícula válida (cuatro números y tres consonantes en mayúscula).</span>
+        <br/>
+
+        <label>DNI:</label>
+        <input type="text" pattern="[0-9]{8}[A-Z]" required />
+        <span class="error">Por favor, introduzca un DNI válido (ocho números y una letra mayúscula).</span>
+        <br/>
+
+        <label>Fecha de aquí a un año:</label>
+        <input type="text" pattern="[0-9]{4}[0-9]{2}[0-9]{2}" required />
+        <span class="error">Por favor, introduzca una fecha válida (formato AAAAMMDD).</span>
+        <br/>
+
+        <label>Matricula Moto:</label>
+        <input type="text" pattern="C[0-9]\S[0-9]{3}\S[A-Z]{3}" required />
+        <span class="error">Por favor, introduzca una matrícula de moto válida (formato: C, número, espacio, tres números y tres letras).</span>
+        <br/>
+
+        <label>Cuenta bancaria:</label>
+        <input type="text" pattern="[A-Z]{2}\s[0-9]{4}\s[0-9]{4}\s[0-9]{4}\s[0-9]{4}" required />
+        <span class="error">Por favor, introduzca una cuenta bancaria válida (dos letras, grupos de cuatro números separados por espacios).</span>
+        <br/>
+
+        <label>Contraseña:</label>
+        <input type="text" pattern="[\W_-]{2}\S" required />
+        <span class="error">Por favor, introduzca una contraseña válida (al menos dos caracteres especiales seguidos de otro carácter).</span>
+        <br/>
+
+        <label>IP:</label>
+        <input type="text" pattern="(\d{1,3}\.){3}\d{1,3}" required />
+        <span class="error">Por favor, introduzca una dirección IP válida (formato xxx.xxx.xxx.xxx).</span>
+        <br/>
+
+        <label>Numero de serie:</label>
+        <input type="text" pattern="N\/S[A-Z][a-z]{9}" required />
+        <span class="error">Por favor, introduzca un número de serie válido (formato N/S, una mayúscula, nueve minúsculas).</span>
+        <br/>
+
+        <label>Dominio:</label>
+        <input type="text" pattern="([a-zA-Z0-9\-]+\.){1,2}[a-z]{2,6}" required />
+        <span class="error">Por favor, introduzca un dominio válido (formato letras/dígitos, con puntos).</span>
+        <br/>
+
+        <button type="submit">Validar</button>
+    </form>
 </body>
 </html>

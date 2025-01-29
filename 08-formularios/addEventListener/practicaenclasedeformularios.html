@@ -56,7 +56,7 @@ function validarImagen () {
     // Resetea mensaje
     miInput2.setCustomValidity('');
 
-    // Destructuramos para obtener el nombre y el tamaño
+    // Destructuramos para obtener el nombre y el tamaño.
     const { name: archivoNombre, size: archivoPeso } = this.files[0];
 
 
@@ -75,6 +75,29 @@ function validarImagen () {
 }
 
 miInput2.addEventListener("input", validarImagen);
+
+//OTRA FORMA DE ADDEVENTLISTENER:
+
+/*miInput2.addEventListener("input", function () {
+    // Resetea mensaje
+    this.setCustomValidity('');
+
+    // Destructuramos para obtener el nombre y el tamaño.
+    const { name: archivoNombre, size: archivoPeso } = this.files[0];
+
+    // Obtenemos la extensión
+    const fileExtension = archivoNombre.split(".").pop();
+
+    // Validamos si tiene una extensión válida
+    if (!extensionesPermitidas.includes(fileExtension)) {
+        this.setCustomValidity('Formato no válido, solo se admite jpg y png');
+    }
+
+    // Validamos el peso
+    if (archivoPeso > pesoLimite) {
+        this.setCustomValidity('Demasiado grande');
+    }
+});*/
 </script>
   </body>
 </html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo 2</title>
+</head>
+<body>
+
+    <!--Este código habilita el botón de envío cuando el usuario 
+    sale del campo de apellidos y si los valores de los campos de 
+    nombre y apellidos son iguales; si no, lo deshabilita. Añade un
+    evento de "focusout"     al campo de apellidos para realizar
+    esta comprobación.-->
+
+    <form name='formulario1' method='POST' action='#' target='_blank'>
+        <b>Nombre: </b>
+        <input type='text' name='nombre' id="nombre" size='10'><br>
+        <b>Apellidos:</b>
+        <input type='text' name='apellidos' id="apellidos" size='10'><br><br>
+
+        <input type='submit' id="enviar" value='Enviar' disabled>
+    </form>
+
+    <script defer src="./JS/ejercicio2.js"></script>
+</body>
+</html>
