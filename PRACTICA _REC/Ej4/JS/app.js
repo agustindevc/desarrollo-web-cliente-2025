@@ -1,27 +1,28 @@
 function agregarElemento() {
+    //pido nuevo item al usuario
     let nuevoItem = prompt("Introduce un nuevo elemento:");
     if (!nuevoItem) return;
 
-    let posicion = prompt("Introduce la posición:\n+ : Añadir al final\n* : Añadir al inicio\n1,2,3 : Reemplazar en la posición");
+    //pido posicion
+    let posicion = prompt("Introduce la posición:\n+ : para al final\n* : para al inicio\n1,2,3 : para idnicar su posicion y reemplazar");
 
+    //obtencion de los elementos <li> de la lista
     let lista = document.getElementById("lista");
     let elementos = lista.getElementsByTagName("li");
 
+    //Añado el elemento segun la posicion indicada.
     if (posicion === "+") {
-        let nuevoElemento = document.createElement("li");
-        nuevoElemento.textContent = nuevoItem;
-        lista.appendChild(nuevoElemento); // Añadir al final
+        let nuevoElemento = document.createElement("li"); //creacion del neuvo elemento
+        nuevoElemento.textContent = nuevoItem; //le añado el contenido al nuevo elemento
+        lista.appendChild(nuevoElemento); // Añadir al final (+)
+
     } else if (posicion === "*") {
-        let nuevoElemento = document.createElement("li");
-        nuevoElemento.textContent = nuevoItem;
-        lista.insertBefore(nuevoElemento, lista.firstChild); // Añadir al inicio
+        let nuevoElemento = document.createElement("li");//creacion del neuvo elemento
+        nuevoElemento.textContent = nuevoItem;//le añado el contenido al nuevo elemento
+        lista.insertBefore(nuevoElemento, lista.firstChild); // Añadir al inicio (*) before.
     } 
     else {
-        let indice = parseInt(posicion) - 1; // Convertir a índice de array
-        if (indice >= 0 && indice < elementos.length) {
-            elementos[indice].textContent = nuevoItem; // Reemplazar en la posición dada
-        } else {
-            alert("Posición inválida. Intenta nuevamente.");
-        }
+        let indice = parseInt(posicion) - 1; // Convertir a índice del array
+        elementos[indice].textContent = nuevoItem; // Reemplazar en la posición dada
     }
 }

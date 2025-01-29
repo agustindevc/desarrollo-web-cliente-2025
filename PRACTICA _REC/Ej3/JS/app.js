@@ -2,8 +2,9 @@
         function calcular(operacion) {
 
             //Obtener valores para operar (desde los inputs)
-            let num1 = document.getElementById("num1").value;
-            let num2 = document.getElementById("num2").value;
+            let num1 = parseFloat(document.getElementById("num1").value);
+            let num2 = parseFloat(document.getElementById("num2").value);
+
             let resultado;
 
             //controlar operacion segun el caso y obtener resultado
