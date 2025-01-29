@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2</title>
+    <script>
+        function copiar(){
+
+            /*//APARTADO A
+            let texto = document.getElementById("campo1").value;
+            let texto2 = document.getElementById("campo2");
+
+            texto2.placeholder = document.getElementById("campo1").value;
+            */
+            //APARTADO B
+            let texto = document.getElementById("campo1").value;
+            let texto2 = document.getElementById("campo2");
+
+            texto2.placeholder = document.getElementById("campo1").value;
+
+
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <input type="text" name="campo1" id="campo1" required onkeypress="copiar()"/>
+        <input type="text" name="campo2" id="campo2" disabled />
+        <!--<button type="button" onclick="copiar()">Copiar</button>-->
+    </form>
+</body>
+</html>
