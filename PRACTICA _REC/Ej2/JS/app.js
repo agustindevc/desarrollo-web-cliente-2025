@@ -36,7 +36,7 @@ media = media.toFixed(2); //tofixed(2) convierte elr esultado a dos decimales.
 console.log("Media redondeada a 2 decimales:", media);
 
 // d) Mostrar los números menores y mayores que la media
-let menores = numeros.filter(num => num < media).join(", ");
+let menores = numeros.filter(num => num < media).join(", ");//funcion flecha (arrow). recibe un parametro (num) y devuelve (num<media) y olos guarda en un array menores. luego convierte el array en un string mediante join, con sus elementos separados por comas.
 let mayores = numeros.filter(num => num > media).join(", ");
 console.log("Números menores que la media:", menores);
 console.log("Números mayores que la media:", mayores);
@@ -44,12 +44,13 @@ console.log("Números mayores que la media:", mayores);
 // e) Pedir un número adicional y verificar si está en el array
 let numeroBuscado = parseInt(prompt("Introduce un número para buscar en el array:"));
 let posiciones = [];
-numeros.forEach((num, index) => {
+numeros.forEach((num, index) => { //Num es el parametro, index es el indice(posicion en la que aparece el numero, este dato es devuelto porque es una funcion arrow, y alamcenado en el array posiciones luego)
     if (num === numeroBuscado) {
         posiciones.push(index);
     }
 });
 
+//muestro los resultados obtenidos
 if (posiciones.length > 0) {
     console.log(`El número ${numeroBuscado} aparece en las posiciones: ${posiciones.join(", ")}`);
 } else {
